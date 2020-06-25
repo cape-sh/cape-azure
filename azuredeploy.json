@@ -6,10 +6,12 @@
             "type": "string"
         },
         "networkInterfaceName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "capesaasvm381"
         },
         "networkSecurityGroupName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "capesaasvm-nsg"
         },
         "networkSecurityGroupRules": {
             "type": "array"
