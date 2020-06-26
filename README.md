@@ -1,13 +1,133 @@
-# cape_on_azure_over_centos
+# cape_on_azure_centos7
+
+[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape_on_azure-centos_via_arm_template%2Fmaster%2Fazuredeploy.json)
+
+
+# Welcome to CAPE
+<p align="center" style="background-color:#23327c">
+  <img src="https://raw.githubusercontent.com/cape-sh/cape/master/assets/logo.png" height="125px" width="200px"/>
+</p>
+
+**About**
+
+Organizations struggle to manage their Kubernetes clusters at a level expected by various stakeholders; they are debilitated by a lack of resources, expertise and tools. Organizations need to overcome these obstacles and become Kubernetes-ready. CAPE will provide organizations with the tooling and ability to perform:
+
+- Disaster Recovery
+  - Utilize Velero, an open source Kubernetes tool for backup & restore
+  - Perform single scheduled backup & restore
+  - Perform multi-cluster & multi-cloud backup & restore
+- Multi-cluster application deployment
+- Multi-cluster DNS and ingress
+
+CAPE enables you to manage Kubernetes clusters on day one without specialized knowledge or proprietary API/CLI experience.
+
+---
+
+**Find out more about CAPE:**
+
+[![](http://img.youtube.com/vi/4KJt8NXTO8E/0.jpg)](http://www.youtube.com/watch?v=4KJt8NXTO8E "Biqmind Cape")
+
+
+---
+
+## Try CAPE SAAS for FREE on Azure cloud
+
+### Install CAPE on Azure
+
+> There are 2 options for accessing CAPE. Follow one of the options below as "root" user on the machine that you want to deploy to.
+
+Option 1: 
+
+Azure CLI method: 
+
+Clone this repo and go to directory 
+```bash
+git clone https://github.com/cape-sh/cape-azure.git
+cd cape-azure
+```
+
+Run the deployment as below:
+* Recommeded to create a new Resource group and pass it in below cmd*
+```
+templateFile=template.json
+ParameterFile=parameters.json
+az deployment group create   --name capesaasdeployment122   --resource-group <your-new-resource group>   --template-file $templateFile --parameters $ParameterFile
+```
+
+Option 2:
 
 Simply click on Deploy button below and yes your cape saas will be readily deployed.
-
+Deploy by clicking:(**This function is yet to be developed**)
+Still You can click on it and upload the parameters file uploaded in this git repo manually on azure portal and it will still work.
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape_on_azure-centos_via_arm_template%2Fmaster%2Fazuredeploy.json)
 
+---
+
+### Access CAPE UI 
+
+The service may take 1-5 mins to come up based on the server config and the internet bandwidth.
+
+> URL
+
+```
+http://<Your_server_ip>.nip.io/
+```
+** All CAPE documentation is available [here](https://docs.cape.sh/docs/) **
+
+---
 
 
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape_on_azure-centos_via_arm_template%2Fmaster%2Fazuredeploy.json)
+### Troubleshooting 
+
+As "root" user run below command to check the pods status.
+
+```bash
+kubectl get pods -n cape
+```
+Make sure all pods are in a healthy state else kill any unhealthy pods and they will restart within a few seconds
+
+---
+
+### RESET everything using playbook
+
+Login as root to your machine
+
+> Run this playbook to uninstall Kubernetes and crictl
+
+```bash
+cd cape-ansible
+ansible-playbook reset.yml
+```
+> "cape-ansible" directory is located where the capesaasPubIP.sh or capesaasPvtIP.sh script was downloaded earlier.
+
+---
+
+### Recommended System requirements
+
+```
+OS: Centos 7.3/7.4/7.5  
+CPU: 2 core
+RAM: 4GB RAM
+Disk Space: 10 GB free 
+Server Internet access: Yes
+```
+
+---
+
+## Get Started with CAPE
+
+Use this [tutorial](https://docs.cape.sh/docs/simple-install) to get started quickly.
+
+
+## Get Involved
+
+We appreciate your feedback and active participation.
+
+If you want to get in touch with us to discuss improvements and new
+features, please [create a new issue on GitHub](https://github.com/cape-sh/cape/issues/new) or connect with us over on Slack:
+
+* [`#general` Slack channel](https://capesh.slack.com)
 
 
 
