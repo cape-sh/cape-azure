@@ -36,35 +36,47 @@ CAPE enables you to manage Kubernetes clusters on day one without specialized kn
 
 > There are 2 options for accessing CAPE. Follow one of the options below as "root" user on the machine that you want to deploy to.
 
-Option 1: 
+Option 1(Recommended): 
 
-Azure CLI method: 
+Azure Cloud Shell bash CLI in Azure Portal or Dekstop installed Azure bash CLI method: 
+
+[!Azure Shell ] (https://shell.azure.com/)
+
 [!Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-Clone this repo and go to directory 
+
+For Desktop Az cli clone this repo as below.
 
 ```bash
 git clone https://github.com/cape-sh/cape-azure.git
 cd cape-azure
 ```
 
-Run the deployment as below:
-* Recommended to create a new Resource group and pass it in below cmd*
-```
+Run the deployment as below in a new resource group and copy paste below commands. 
+
+
+```bash
+
+curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.json > azuredeploy.json
+curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
 templateFile=azuredeploy.json
-ParameterFile=azuredeploy.parameters.json
-az deployment group create   --name capedeployment   --resource-group <your-new-resource group>   --template-file $templateFile --parameters $ParameterFile
+parameterFile=azuredeploy.parameters.json
+az deployment group create   --name capesaasdeployment   --resource-group caperg1   --template-file $templateFile --parameters $parameterFile
+    
 ```
 
+Yes your deployment is complete!!
+
 Option 2:
-*Non CLI option*
+
+*Non CLI option* 
+
 Click  Deploy button :
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape-azure%2Fmaster%2Fazuredeploy.json)
 
-> Downlaod **azuredeploy.parameters.json** and manually in Edit template section if you want to edit parameters. 
+> Downlaod **azuredeploy.parameters.json** and upload manually in "Edit paramaters" or copy the contents
 
-You can modify the parameters fields as per your requirement
-azuredeploy.parameters.json download URL: https://github.com/cape-sh/cape-azure/blob/master/azuredeploy.parameters.json
+You can modify the parameters fields as per your requirement 
 
 ---
 
