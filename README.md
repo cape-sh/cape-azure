@@ -40,7 +40,7 @@ Option 1(Recommended):
 
 Azure Cloud Shell bash CLI in Azure Portal or Dekstop installed Azure bash CLI method: 
 
-[!Azure Shell ] (https://shell.azure.com/)
+[!Azure Shell ](https://shell.azure.com/)
 
 [!Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
@@ -51,17 +51,16 @@ git clone https://github.com/cape-sh/cape-azure.git
 cd cape-azure
 ```
 
-Run the deployment as below in a new resource group and copy paste below commands. 
-
+Run the deployment by copy pasting the given commands:
+Here we will create a new resource group to keep cape resources in separate zone and deploy cape saas end to end.
 
 ```bash
-
+az group create --name caperesgrp2020 --location eastus
 curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.json > azuredeploy.json
 curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
 templateFile=azuredeploy.json
 parameterFile=azuredeploy.parameters.json
-az deployment group create   --name capesaasdeployment   --resource-group caperg1   --template-file $templateFile --parameters $parameterFile
-    
+az deployment group create   --name capesaasdeployment   --resource-group caperesgrp2020   --template-file $templateFile --parameters $parameterFile  
 ```
 
 Yes your deployment is complete!!
