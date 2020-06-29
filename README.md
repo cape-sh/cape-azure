@@ -39,28 +39,32 @@ CAPE enables you to manage Kubernetes clusters on day one without specialized kn
 Option 1: 
 
 Azure CLI method: 
-
+[!Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 Clone this repo and go to directory 
+
 ```bash
 git clone https://github.com/cape-sh/cape-azure.git
 cd cape-azure
 ```
 
 Run the deployment as below:
-* Recommeded to create a new Resource group and pass it in below cmd*
+* Recommended to create a new Resource group and pass it in below cmd*
 ```
-templateFile=template.json
-ParameterFile=parameters.json
-az deployment group create   --name capesaasdeployment122   --resource-group <your-new-resource group>   --template-file $templateFile --parameters $ParameterFile
+templateFile=azuredeploy.json
+ParameterFile=azuredeploy.parameters.json
+az deployment group create   --name capedeployment   --resource-group <your-new-resource group>   --template-file $templateFile --parameters $ParameterFile
 ```
 
 Option 2:
-
-Simply click on Deploy button below and yes your cape saas will be readily deployed.
-Deploy by clicking:(**This function is yet to be developed**)
-Still You can click on it and upload the parameters file uploaded in this git repo manually on azure portal and it will still work.
+*Non CLI option*
+Click  Deploy button :
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape_on_azure-centos_via_arm_template%2Fmaster%2Fazuredeploy.json)
+
+> Downlaod **azuredeploy.parameters.json** and manually in Edit template section if you want to edit parameters. 
+
+You can modify the parameters fields as per your requirement
+azuredeploy.parameters.json download URL: https://github.com/cape-sh/cape-azure/blob/master/azuredeploy.parameters.json
 
 ---
 
@@ -83,7 +87,7 @@ http://<Your_server_ip>.nip.io/
 As "root" user run below command to check the pods status.
 
 ```bash
-kubectl get pods -n cape
+kubectl get pods -A
 ```
 Make sure all pods are in a healthy state else kill any unhealthy pods and they will restart within a few seconds
 
@@ -96,7 +100,7 @@ Login as root to your machine
 > Run this playbook to uninstall Kubernetes and crictl
 
 ```bash
-cd cape-ansible
+cd cape-azure
 ansible-playbook reset.yml
 ```
 > "cape-ansible" directory is located where the capesaasPubIP.sh or capesaasPvtIP.sh script was downloaded earlier.
