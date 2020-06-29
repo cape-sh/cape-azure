@@ -6,12 +6,10 @@
             "type": "string"
         },
         "networkInterfaceName": {
-            "type": "string",
-            "defaultValue": "capesaasvm381"
+            "type": "string"
         },
         "networkSecurityGroupName": {
-            "type": "string",
-            "defaultValue": "capesaasvm-nsg"
+            "type": "string"
         },
         "networkSecurityGroupRules": {
             "type": "array"
@@ -62,6 +60,12 @@
             "type": "string"
         },
         "diagnosticsStorageAccountId": {
+            "type": "string"
+        },
+        "diagnosticsStorageAccountType": {
+            "type": "string"
+        },
+        "diagnosticsStorageAccountKind": {
             "type": "string"
         }
     },
@@ -140,7 +144,8 @@
             "apiVersion": "2019-07-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
+                "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('diagnosticsStorageAccountName'))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -186,7 +191,18 @@
             }
         },
         {
-            "name": "microsoft.custom-script-linux-20200622130526",
+            "name": "[parameters('diagnosticsStorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[parameters('location')]",
+            "properties": {},
+            "kind": "[parameters('diagnosticsStorageAccountKind')]",
+            "sku": {
+                "name": "[parameters('diagnosticsStorageAccountType')]"
+            }
+        },
+        {
+            "name": "microsoft.custom-script-linux-20200629151034",
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
             "properties": {
@@ -196,18 +212,18 @@
                 },
                 "parameters": {
                     "vmName": {
-                        "value": "capesaasvm"
+                        "value": "cape"
                     },
                     "location": {
-                        "value": "eastasia"
+                        "value": "centralus"
                     },
                     "fileUris": {
                         "value": [
-                            "https://raw.githubusercontent.com/cape-sh/cape-k3s-ansible-deployment/master/script/capesaas.sh"
+                            "https://raw.githubusercontent.com/cape-sh/cape-ansible/master/script/capesaasPubIP.sh"
                         ]
                     },
                     "commandToExecute": {
-                        "value": "sh capesaas.sh"
+                        "value": "sh capesaasPubIP.sh"
                     }
                 }
             },
