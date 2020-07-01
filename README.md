@@ -1,4 +1,4 @@
-# cape_on_azure_centos7
+# Deploy CAPE on azure cloud 
 
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape-azure%2Fmaster%2Fazuredeploy.json)
@@ -39,23 +39,14 @@ CAPE enables you to manage Kubernetes clusters on day one without specialized kn
 
 > There are 2 options for accessing CAPE. Follow one of the options below as "root" user on the machine that you want to deploy to.
 
-Option 1(Recommended): 
+**Option 1 (Recommended)**: 
 
-Azure Cloud Shell bash CLI in Azure Portal or Dekstop installed Azure bash CLI method: 
 
-[!Azure Shell ](https://shell.azure.com/)
+Go to azure cloud shell: [Azure Shell ] (https://shell.azure.com/) and select bash from drop down.
 
-[!Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-For Desktop Az cli clone this repo as below.
-
-```bash
-git clone https://github.com/cape-sh/cape-azure.git
-cd cape-azure
-```
 
 Run the deployment by copy pasting the given commands:
-Here we will create a new resource group to keep cape resources in separate zone and deploy cape saas end to end.
+
 
 ```bash
 az group create --name caperesgrp2020 --location eastus
@@ -63,14 +54,20 @@ curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.jso
 curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
 templateFile=azuredeploy.json
 parameterFile=azuredeploy.parameters.json
-az deployment group create   --name capesaasdeployment   --resource-group caperesgrp2020   --template-file $templateFile --parameters $parameterFile  
+az deployment group create   --name capesaasdeployment   --resource-group caperesgrp2020   --template-file $templateFile --parameters $parameterFile 
+ 
+ 
 ```
-
+Here we will create a new resource group to keep cape resources in separate zone and deploy cape saas end to end.
 Yes your deployment is complete!!
 
-Option 2:
+You can login to your cape cloud machine :
+> username :  cape
+> Password: Biqmind@1234!
 
-*Non CLI option* 
+**Option 2:**
+
+*Non CLI option*
 
 Click  Deploy button :
 
@@ -98,7 +95,8 @@ http://<Your_server_ip>.nip.io/
 
 ### Troubleshooting 
 
-As "root" user run below command to check the pods status.
+As "root" user run below command to check the pods status. 
+Login as cape and switch user as root "sudo su - root"
 
 ```bash
 kubectl get pods -A
