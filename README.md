@@ -42,7 +42,7 @@ CAPE enables you to manage Kubernetes clusters on day one without specialized kn
 **Option 1 (Recommended)**: 
 
 
-Go to azure cloud shell: [Azure Shell](https://shell.azure.com/) and select bash from drop down.
+Go to azure cloud shell: [Azure Shell](https://shell.azure.com/) and tyep commands below.
 
 
 Run the deployment by copy pasting the given commands:
