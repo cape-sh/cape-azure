@@ -12,15 +12,13 @@ jobs:
     - uses: azure/login@v1.1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    - name: Checkout
-      uses: actions/checkout@v1
 
     - name: Azure CLI script file
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: 2.8.0
         inlineScript: |
+          az --version
           echo $GITHUB_WORKSPACE
           curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.json > azuredeploy.json 
           curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
