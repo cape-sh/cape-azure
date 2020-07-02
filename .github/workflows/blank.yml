@@ -27,4 +27,5 @@ jobs:
           templateFile=azuredeploy.json
           parameterFile=azuredeploy.parameters.json
           echo $parameterFile
-          az deployment group create   --name capesaasdeployment   --resource-group cape   --template-file $templateFile --parameters $parameterFile
+          az deployment group create   --name capesaasdeployment   --resource-group cape-gitaction   \
+                                       --template-file $templateFile --parameters $parameterFile
