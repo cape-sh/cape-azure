@@ -15,3 +15,8 @@ jobs:
     
     - run: |
         az group list
+        curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.json > azuredeploy.json
+        curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
+        templateFile=azuredeploy.json
+        parameterFile=azuredeploy.parameters.json
+        az deployment group create   --name capesaasdeployment   --resource-group cape   --template-file $templateFile --parameters
