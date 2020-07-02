@@ -13,13 +13,20 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
-    - run: |
-        bash
-        curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.json > azuredeploy.json
-        curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
-        ls -lrt
-        pwd
-        templateFile=azuredeploy.json
-        parameterFile=azuredeploy.parameters.json
-        echo $parameterFile
-        az deployment group create   --name capesaasdeployment   --resource-group cape   --template-file $templateFile --parameters $parameterFile
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          echo $GITHUB_WORKSPACE
+          curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.json > azuredeploy.json 
+          curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
+          ls -lrt
+          pwd
+          templateFile=azuredeploy.json
+          parameterFile=azuredeploy.parameters.json
+          echo $parameterFile
+          az deployment group create   --name capesaasdeployment   --resource-group cape   --template-file $templateFile --parameters $parameterFile
