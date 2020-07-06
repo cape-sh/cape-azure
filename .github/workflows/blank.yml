@@ -11,7 +11,7 @@ jobs:
     
     - uses: azure/login@v1.1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.AZUE_CREDENTIALS }}
 
     - name: Azure CLI script file
       uses: azure/CLI@v1
