@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+on: [push]
+
+name: AzureLoginSample
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - uses: azure/login@v1.1
+      with:
+        creds: ${{ secrets.AZUE_CREDENTIALS }}
+
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.8.0
+        inlineScript: |
+          az --version
+          echo $GITHUB_WORKSPACE
+          curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.json > azuredeploy.json 
+          curl https://raw.githubusercontent.com/cape-sh/cape-azure/master/azuredeploy.parameters.json > azuredeploy.parameters.json
+          ls -lrt
+          pwd
+          templateFile=azuredeploy.json
+          parameterFile=azuredeploy.parameters.json
+          echo $parameterFile
+          az deployment group create   --name capesaasdeployment   --resource-group cape-gitaction   \
+                                       --template-file $templateFile --parameters $parameterFile
