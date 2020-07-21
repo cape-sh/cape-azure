@@ -61,8 +61,6 @@ The service may take 1-5 mins to come up based on the server config and the inte
 ```
 http://<Your_server_ip>.nip.io/
 ```
-** All CAPE documentation is available [here](https://docs.cape.sh/docs/) **
-
 ---
 
 
