@@ -6,33 +6,6 @@
 [![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape-azure%2Fmaster%2Fazuredeploy.json)
 
 
-# Welcome to CAPE
-<p align="center" style="background-color:#23327c">
-  <img src="https://raw.githubusercontent.com/cape-sh/cape/master/assets/logo.png" height="125px" width="200px"/>
-</p>
-
-**About**
-
-Organizations struggle to manage their Kubernetes clusters at a level expected by various stakeholders; they are debilitated by a lack of resources, expertise and tools. Organizations need to overcome these obstacles and become Kubernetes-ready. CAPE will provide organizations with the tooling and ability to perform:
-
-- Disaster Recovery
-  - Utilize Velero, an open source Kubernetes tool for backup & restore
-  - Perform single scheduled backup & restore
-  - Perform multi-cluster & multi-cloud backup & restore
-- Multi-cluster application deployment
-- Multi-cluster DNS and ingress
-
-CAPE enables you to manage Kubernetes clusters on day one without specialized knowledge or proprietary API/CLI experience.
-
----
-
-**Find out more about CAPE:**
-
-[![](http://img.youtube.com/vi/4KJt8NXTO8E/0.jpg)](http://www.youtube.com/watch?v=4KJt8NXTO8E "Biqmind Cape")
-
-
----
-
 ## Try CAPE for FREE on Azure cloud
 
 ### Install CAPE on Azure
@@ -131,19 +104,8 @@ Server Internet access: Yes
 
 ---
 
-## Get Started with CAPE
-
-Use this [tutorial](https://docs.cape.sh/docs/simple-install) to get started quickly.
-
-
-## Get Involved
-
-We appreciate your feedback and active participation.
-
-If you want to get in touch with us to discuss improvements and new
-features, please [create a new issue on GitHub](https://github.com/cape-sh/cape/issues/new) or connect with us over on Slack:
-
-* [`#general` Slack channel](https://capesh.slack.com)
+## Support
+For more information on CAPE, return to the main [Repo](https://github.com/cape-sh/cape)
 
 
 
