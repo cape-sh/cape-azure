@@ -1,4 +1,4 @@
-# Deploy CAPE on azure cloud 
+# Deploy CAPE on Azure cloud 
 
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape-azure%2Fmaster%2Fazuredeploy.json)
@@ -15,7 +15,7 @@
 **Option 1 (Recommended)**: 
 
 
-Go to azure cloud shell: [Azure Shell](https://shell.azure.com/) and tyep commands below.
+Go to azure cloud shell: [Azure Shell](https://shell.azure.com/) and type commands below.
 
 
 Run the deployment by copy pasting the given commands:
