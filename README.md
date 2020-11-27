@@ -46,7 +46,7 @@ Click  Deploy button :
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcape-sh%2Fcape-azure%2Fmaster%2Fazuredeploy.json)
 
-> Downlaod **azuredeploy.parameters.json** and upload manually in "Edit paramaters" or copy the contents
+> Download **azuredeploy.parameters.json** and upload manually in "Edit paramaters" or copy the contents
 
 You can modify the parameters fields as per your requirement 
 
