@@ -34,9 +34,12 @@ az deployment group create   --name capesaasdeployment   --resource-group capere
 Here we will create a new resource group to keep cape resources in separate zone and deploy cape saas end to end.
 Yes your deployment is complete!!
 
-You can login to your cape cloud machine :
-> username :  cape
+You can login to your cape cloud machine via your public ip of VM:
+> Username :  cape
+
 > Password: Biqmind@1234!
+
+> eg: ssh cape@<Your_server_ip>
 
 **Option 2:**
 
